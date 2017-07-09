@@ -15,7 +15,7 @@ import redis
 import requests as req
 reload(sys)
 sys.setdefaultencoding("utf-8")
-TOKEN = 'Token'
+TOKEN = '447539952:AAH_a001_4nYLXNy5xvD5dGY3SB4IT_OIdQ'
 bot = telebot.TeleBot(TOKEN)
 redis = redis.StrictRedis(host='localhost', port=6379, db=0)
 db = "https://api.telegram.org/bot{}/getMe?".format(TOKEN)
@@ -23,20 +23,20 @@ db = "https://api.telegram.org/bot{}/getMe?".format(TOKEN)
 f = "\n \033[01;30m Bot Firstname: {} \033[0m".format(bot.get_me().first_name)
 u = "\n \033[01;34m Bot Username: {} \033[0m".format(bot.get_me().username)
 i = "\n \033[01;32m Bot ID: {} \033[0m".format(bot.get_me().id)
-c = "\n \033[01;31m by @kiavair \033[0m"
+c = "\n \033[01;31m by @dvusa \033[0m"
 print(f + u + i + c)
 
 @bot.message_handler(commands=['start'])
 def start(m):
-    if m.from_user.id == 123456789 :
+    if m.from_user.id == 207213049 :
      markup = types.InlineKeyboardMarkup()
-     c = types.InlineKeyboardButton("@kiavair",callback_data='amar')
+     c = types.InlineKeyboardButton("@dvusa",callback_data='amar')
      markup.add(c)
      bot.send_message(m.chat.id, "سلام ادمین خوش اومدید برای دیدن امار ربات دستور /panel رو ارسال کنید و برای فرواد متن از /fwdall", reply_markup=markup, parse_mode='Markdown')
 	 
 @bot.message_handler(commands=['panel'])
 def panel(m):
-    if m.from_user.id == 123456789 :
+    if m.from_user.id == 207213049 :
      markup = types.InlineKeyboardMarkup()
      c = types.InlineKeyboardButton("امار🌟",callback_data='amar')
      markup.add(c)
@@ -44,7 +44,7 @@ def panel(m):
 
 @bot.message_handler(commands=['fwdall'])
 def fwdall(m):
-    if m.from_user.id == 123456789 :
+    if m.from_user.id == 207213049 :
         if m.reply_to_message:
             mid = m.reply_to_message.message_id
             ids = redis.smembers('alls')
@@ -56,7 +56,7 @@ def fwdall(m):
 		
 @bot.message_handler(commands=['bc'])
 def clac(m):
-    if m.from_user.id == 123456789 :
+    if m.from_user.id == 207213049 :
         text = m.text.replace("/bc ","")
         rd = redis.smembers('alls')
         for id in rd:
